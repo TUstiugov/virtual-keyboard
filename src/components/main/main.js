@@ -1,3 +1,5 @@
+import createTextArea from '../text-area/text-area';
+
 import './main.scss';
 
 const CssClasses = {
@@ -11,6 +13,11 @@ export default function createMain() {
 
   const container = document.createElement('div');
   container.classList.add(CssClasses.CONTAINER);
+
+  const textArea = createTextArea();
+  container.append(textArea);
+
+  main.append(container);
 
   return main;
 }
