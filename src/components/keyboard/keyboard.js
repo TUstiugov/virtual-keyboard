@@ -1,6 +1,7 @@
 import './keyboard.scss';
 
 import createKey from '../key/key';
+import getKeyCodes from '../../db/keys';
 
 const CssClasses = {
   KEYBOARD: 'keyboard',
@@ -14,6 +15,10 @@ const KEYBOARD_LAYOUT = [
   [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 38, 16],
   [17, 91, 18, 32, 18, 37, 40, 39, 17],
 ];
+
+const KeyCodesObject = getKeyCodes();
+
+const lang = 'en';
 
 export default function createKeyboard() {
   const keyboard = document.createElement('section');
@@ -43,7 +48,7 @@ export default function createKeyboard() {
 
   KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
     keyboardRow.forEach((keyCode) => {
-      const key = createKey(keyCode);
+      const key = createKey(keyCode, KeyCodesObject, lang);
       rowsArr[rowIndex].append(key);
     });
   });
