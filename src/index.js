@@ -4,7 +4,9 @@ import createFooter from './components/footer/footer';
 
 import './index.scss';
 
-const header = createHeader('Virtual Keyboard');
+const HEADER_TITLE = 'Virtual Keyboard';
+
+const header = createHeader(HEADER_TITLE);
 const main = createMain();
 const footer = createFooter();
 
