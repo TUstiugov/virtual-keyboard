@@ -1,6 +1,7 @@
-import createTextArea from '../text-area/text-area';
-
 import './main.scss';
+
+import createTextArea from '../text-area/text-area';
+import createKeyboard from '../keyboard/keyboard';
 
 const CssClasses = {
   MAIN: 'main',
@@ -16,6 +17,9 @@ export default function createMain() {
 
   const textArea = createTextArea();
   container.append(textArea);
+
+  const keyboard = createKeyboard();
+  container.append(keyboard);
 
   main.append(container);
 

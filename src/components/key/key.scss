@@ -1,0 +1,48 @@
+.key {
+  height: 50px;
+
+  background-color: #4e4e4e;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.1s;
+  border: 0;
+
+  &:hover {
+    background-color: #534747;
+  }
+
+  &:active {
+    background-color: #6e1313;
+    border-radius: 25px;
+  }
+
+  &_char {
+    width: 50px;
+  }
+
+  &_system {
+    min-width: 50px;
+  }
+
+  &_space {
+    flex: 1 0 auto;
+  }
+}
+
+.key__up-arrow {
+  transform: rotate(90deg);
+}
+
+.key__right-arrow {
+  transform: rotate(180deg);
+}
+
+.key__down-arrow {
+  transform: rotate(-90deg);
+}
+
+.key__shift,
+.key__enter,
+.key__caps-lock {
+  width: 110px;
+}
