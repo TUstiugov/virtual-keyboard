@@ -18,7 +18,7 @@ export default function createMain() {
   const textArea = createTextArea();
   container.append(textArea);
 
-  const keyboard = createKeyboard();
+  const keyboard = createKeyboard(textArea);
   container.append(keyboard);
 
   main.append(container);

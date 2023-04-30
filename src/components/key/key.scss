@@ -4,16 +4,21 @@
   background-color: #4e4e4e;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.2s;
   border: 0;
 
   &:hover {
     background-color: #534747;
   }
 
-  &:active {
+  &:active,
+  &_down {
     background-color: #6e1313;
     border-radius: 25px;
+  }
+
+  &_active {
+    background-color: #6e1313;
   }
 
   &_char {

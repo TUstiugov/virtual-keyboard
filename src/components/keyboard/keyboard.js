@@ -9,19 +9,145 @@ const CssClasses = {
 };
 
 const KEYBOARD_LAYOUT = [
-  [192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 189, 187, 8],
-  [9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 46],
-  [20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13],
-  [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 38, 16],
-  [17, 91, 18, 32, 18, 37, 40, 39, 17],
+  ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6',
+    'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'Backspace'],
+  ['Tab', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI',
+    'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'Delete'],
+  ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK',
+    'KeyL', 'Semicolon', 'Quote', 'Enter'],
+  ['ShiftLeft', 'Backslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN',
+    'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
+  ['ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'ControlRight',
+    'ArrowLeft', 'ArrowDown', 'ArrowRight'],
 ];
 
 const KeyCodesObject = getKeyCodes();
-
 const lang = 'en';
 
-export default function createKeyboard() {
-  const keyboard = document.createElement('section');
+let textArea = null;
+let keyboard = null;
+let keysCollection = null;
+let isShift = false;
+let isCapsLock = false;
+let charType = 'default';
+let rowsArr = [];
+
+function keyboardClickHandler(e) {
+  const { keyCode } = e.target.dataset;
+  const keyObj = KeyCodesObject[keyCode];
+
+  if (!keyObj.isSystem) {
+    textArea.value += keyObj.value[lang].default;
+  }
+}
+
+function keyboardKeyDownHandler(e) {
+  e.preventDefault();
+  const keyCode = e.code;
+
+  keysCollection.forEach((key) => {
+    if (key.dataset.keyCode === keyCode) {
+      key.classList.add('key_down');
+    }
+  });
+
+  if (!e.repeat) {
+    if (keyCode === 'ShiftRight' || keyCode === 'ShiftLeft') {
+      isShift = true;
+
+      if ((isShift && !isCapsLock) || (!isShift && isCapsLock)) charType = 'shift';
+      if ((!isShift && !isCapsLock) || (isShift && isCapsLock)) charType = 'default';
+
+      KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
+        rowsArr[rowIndex].innerHTML = '';
+
+        keyboardRow.forEach((code) => {
+          const key = createKey(code, KeyCodesObject, lang, charType);
+          rowsArr[rowIndex].append(key);
+        });
+      });
+
+      keysCollection = keyboard.querySelectorAll('.key');
+
+      keysCollection.forEach((key) => {
+        if (key.dataset.keyCode === keyCode) {
+          key.classList.add('key_down');
+        }
+      });
+    }
+
+    if (keyCode === 'CapsLock') {
+      if (isCapsLock) {
+        isCapsLock = false;
+      } else {
+        isCapsLock = true;
+      }
+
+      if ((isShift && !isCapsLock) || (!isShift && isCapsLock)) charType = 'shift';
+      if ((!isShift && !isCapsLock) || (isShift && isCapsLock)) charType = 'default';
+
+      KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
+        rowsArr[rowIndex].innerHTML = '';
+
+        keyboardRow.forEach((code) => {
+          const key = createKey(code, KeyCodesObject, lang, charType);
+          rowsArr[rowIndex].append(key);
+        });
+      });
+
+      keysCollection = keyboard.querySelectorAll('.key');
+
+      keysCollection.forEach((key) => {
+        if (key.dataset.keyCode === keyCode) {
+          key.classList.add('key_down');
+        }
+      });
+
+      keysCollection.forEach((key) => {
+        if (key.dataset.keyCode === 'CapsLock') {
+          if (isCapsLock) {
+            key.classList.add('key_active');
+          } else {
+            key.classList.remove('key_active');
+          }
+        }
+      });
+    }
+  }
+}
+
+function keyboardKeyUpHandler(e) {
+  const keyCode = e.code;
+
+  keysCollection.forEach((key) => {
+    if (key.dataset.keyCode === keyCode) {
+      key.classList.remove('key_down');
+    }
+  });
+
+  if (keyCode === 'ShiftRight' || keyCode === 'ShiftLeft') {
+    isShift = false;
+
+    if ((isShift && !isCapsLock) || (!isShift && isCapsLock)) charType = 'shift';
+    if ((!isShift && !isCapsLock) || (isShift && isCapsLock)) charType = 'default';
+
+    KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
+      rowsArr[rowIndex].innerHTML = '';
+
+      keyboardRow.forEach((code) => {
+        const key = createKey(code, KeyCodesObject, lang, charType);
+        rowsArr[rowIndex].append(key);
+      });
+    });
+
+    keysCollection = keyboard.querySelectorAll('.key');
+  }
+}
+
+export default function createKeyboard(htmlElement) {
+  textArea = htmlElement;
+
+  keyboard = document.createElement('section');
   keyboard.classList.add(CssClasses.KEYBOARD);
 
   const row0 = document.createElement('div');
@@ -44,14 +170,21 @@ export default function createKeyboard() {
   row4.classList.add(CssClasses.ROW);
   keyboard.append(row4);
 
-  const rowsArr = [row0, row1, row2, row3, row4];
+  rowsArr = [row0, row1, row2, row3, row4];
 
   KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
     keyboardRow.forEach((keyCode) => {
-      const key = createKey(keyCode, KeyCodesObject, lang);
+      const key = createKey(keyCode, KeyCodesObject, lang, charType);
       rowsArr[rowIndex].append(key);
     });
   });
+
+  keysCollection = keyboard.querySelectorAll('.key');
+
+  keyboard.addEventListener('click', keyboardClickHandler);
+
+  document.body.addEventListener('keyup', keyboardKeyUpHandler);
+  document.body.addEventListener('keydown', keyboardKeyDownHandler);
 
   return keyboard;
 }

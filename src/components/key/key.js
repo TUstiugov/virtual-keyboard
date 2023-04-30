@@ -7,12 +7,12 @@ const CssClasses = {
   SPACE: 'key_space',
 };
 
-export default function createKey(keyCode, KeyCodesObject, lang) {
+export default function createKey(keyCode, KeyCodesObject, lang, type) {
   const keyObject = KeyCodesObject[keyCode];
 
   const key = document.createElement('button');
   key.classList.add(CssClasses.KEY);
-  key.classList.add(`${CssClasses.KEY}__${keyObject.keyName}`);
+  key.classList.add(`${CssClasses.KEY}__${keyCode}`);
   key.dataset.keyCode = keyCode;
 
   if (keyObject.isSystem) {
@@ -21,7 +21,7 @@ export default function createKey(keyCode, KeyCodesObject, lang) {
     key.classList.add(CssClasses.CHAR_KEY);
   }
 
-  key.textContent = keyObject.value[lang].default;
+  key.textContent = keyObject.value[lang][type];
 
   if (keyObject.keyName === 'space') {
     key.classList.add(CssClasses.SPACE);

@@ -1,5 +1,6 @@
 const Keys = {
-  8: {
+  Backspace: {
+    keyCode: 8,
     keyName: 'backspace',
     isSystem: true,
     value: {
@@ -13,7 +14,8 @@ const Keys = {
       },
     },
   },
-  9: {
+  Tab: {
+    keyCode: 9,
     keyName: 'tab',
     isSystem: true,
     value: {
@@ -27,7 +29,8 @@ const Keys = {
       },
     },
   },
-  13: {
+  Enter: {
+    keyCode: 13,
     keyName: 'enter',
     isSystem: true,
     value: {
@@ -41,7 +44,8 @@ const Keys = {
       },
     },
   },
-  16: {
+  ShiftLeft: {
+    keyCode: 16,
     keyName: 'shift',
     isSystem: true,
     value: {
@@ -55,7 +59,23 @@ const Keys = {
       },
     },
   },
-  17: {
+  ShiftRight: {
+    keyCode: 16,
+    keyName: 'shift',
+    isSystem: true,
+    value: {
+      en: {
+        default: 'Shift',
+        shift: 'Shift',
+      },
+      ru: {
+        default: 'Shift',
+        shift: 'Shift',
+      },
+    },
+  },
+  ControlLeft: {
+    keyCode: 17,
     keyName: 'ctrl',
     isSystem: true,
     value: {
@@ -69,7 +89,23 @@ const Keys = {
       },
     },
   },
-  18: {
+  ControlRight: {
+    keyCode: 17,
+    keyName: 'ctrl',
+    isSystem: true,
+    value: {
+      en: {
+        default: 'Ctrl',
+        shift: 'Ctrl',
+      },
+      ru: {
+        default: 'Ctrl',
+        shift: 'Ctrl',
+      },
+    },
+  },
+  AltLeft: {
+    keyCode: 18,
     keyName: 'alt',
     isSystem: true,
     value: {
@@ -83,7 +119,23 @@ const Keys = {
       },
     },
   },
-  20: {
+  AltRight: {
+    keyCode: 18,
+    keyName: 'alt',
+    isSystem: true,
+    value: {
+      en: {
+        default: 'Alt',
+        shift: 'Alt',
+      },
+      ru: {
+        default: 'Alt',
+        shift: 'Alt',
+      },
+    },
+  },
+  CapsLock: {
+    keyCode: 20,
     keyName: 'caps-lock',
     isSystem: true,
     value: {
@@ -97,7 +149,8 @@ const Keys = {
       },
     },
   },
-  32: {
+  Space: {
+    keyCode: 32,
     keyName: 'space',
     isSystem: true,
     value: {
@@ -111,7 +164,8 @@ const Keys = {
       },
     },
   },
-  37: {
+  ArrowLeft: {
+    keyCode: 37,
     keyName: 'left-arrow',
     isSystem: true,
     value: {
@@ -125,7 +179,8 @@ const Keys = {
       },
     },
   },
-  38: {
+  ArrowUp: {
+    keyCode: 38,
     keyName: 'up-arrow',
     isSystem: true,
     value: {
@@ -139,7 +194,8 @@ const Keys = {
       },
     },
   },
-  39: {
+  ArrowRight: {
+    keyCode: 39,
     keyName: 'right-arrow',
     isSystem: true,
     value: {
@@ -153,7 +209,8 @@ const Keys = {
       },
     },
   },
-  40: {
+  ArrowDown: {
+    keyCode: 40,
     keyName: 'down-arrow',
     isSystem: true,
     value: {
@@ -167,7 +224,8 @@ const Keys = {
       },
     },
   },
-  46: {
+  Delete: {
+    keyCode: 46,
     keyName: 'del',
     isSystem: true,
     value: {
@@ -181,7 +239,8 @@ const Keys = {
       },
     },
   },
-  48: {
+  Digit0: {
+    keyCode: 48,
     keyName: '0',
     isSystem: false,
     value: {
@@ -195,7 +254,8 @@ const Keys = {
       },
     },
   },
-  49: {
+  Digit1: {
+    keyCode: 49,
     keyName: '1',
     isSystem: false,
     value: {
@@ -209,7 +269,8 @@ const Keys = {
       },
     },
   },
-  50: {
+  Digit2: {
+    keyCode: 50,
     keyName: '2',
     isSystem: false,
     value: {
@@ -223,7 +284,8 @@ const Keys = {
       },
     },
   },
-  51: {
+  Digit3: {
+    keyCode: 3,
     keyName: '3',
     isSystem: false,
     value: {
@@ -237,7 +299,8 @@ const Keys = {
       },
     },
   },
-  52: {
+  Digit4: {
+    keyCode: 52,
     keyName: '4',
     isSystem: false,
     value: {
@@ -251,7 +314,8 @@ const Keys = {
       },
     },
   },
-  53: {
+  Digit5: {
+    keyCode: 53,
     keyName: '5',
     isSystem: false,
     value: {
@@ -265,7 +329,8 @@ const Keys = {
       },
     },
   },
-  54: {
+  Digit6: {
+    keyCode: 54,
     keyName: '6',
     isSystem: false,
     value: {
@@ -279,7 +344,8 @@ const Keys = {
       },
     },
   },
-  55: {
+  Digit7: {
+    keyCode: 55,
     keyName: '7',
     isSystem: false,
     value: {
@@ -293,7 +359,8 @@ const Keys = {
       },
     },
   },
-  56: {
+  Digit8: {
+    keyCode: 56,
     keyName: '8',
     isSystem: false,
     value: {
@@ -307,7 +374,8 @@ const Keys = {
       },
     },
   },
-  57: {
+  Digit9: {
+    keyCode: 57,
     keyName: '9',
     isSystem: false,
     value: {
@@ -321,7 +389,8 @@ const Keys = {
       },
     },
   },
-  65: {
+  KeyA: {
+    keyCode: 65,
     keyName: 'a',
     isSystem: false,
     value: {
@@ -335,7 +404,8 @@ const Keys = {
       },
     },
   },
-  66: {
+  KeyB: {
+    keyCode: 66,
     keyName: 'b',
     isSystem: false,
     value: {
@@ -349,7 +419,8 @@ const Keys = {
       },
     },
   },
-  67: {
+  KeyC: {
+    keyCode: 67,
     keyName: 'c',
     isSystem: false,
     value: {
@@ -363,7 +434,8 @@ const Keys = {
       },
     },
   },
-  68: {
+  KeyD: {
+    keyCode: 68,
     keyName: 'd',
     isSystem: false,
     value: {
@@ -377,7 +449,8 @@ const Keys = {
       },
     },
   },
-  69: {
+  KeyE: {
+    keyCode: 69,
     keyName: 'e',
     isSystem: false,
     value: {
@@ -391,7 +464,8 @@ const Keys = {
       },
     },
   },
-  70: {
+  KeyF: {
+    keyCode: 70,
     keyName: 'f',
     isSystem: false,
     value: {
@@ -405,7 +479,8 @@ const Keys = {
       },
     },
   },
-  71: {
+  KeyG: {
+    keyCode: 71,
     keyName: 'g',
     isSystem: false,
     value: {
@@ -419,7 +494,8 @@ const Keys = {
       },
     },
   },
-  72: {
+  KeyH: {
+    keyCode: 72,
     keyName: 'h',
     isSystem: false,
     value: {
@@ -433,7 +509,8 @@ const Keys = {
       },
     },
   },
-  73: {
+  KeyI: {
+    keyCode: 73,
     keyName: 'i',
     isSystem: false,
     value: {
@@ -447,7 +524,8 @@ const Keys = {
       },
     },
   },
-  74: {
+  KeyJ: {
+    keyCode: 74,
     keyName: 'j',
     isSystem: false,
     value: {
@@ -461,7 +539,8 @@ const Keys = {
       },
     },
   },
-  75: {
+  KeyK: {
+    keyCode: 75,
     keyName: 'k',
     isSystem: false,
     value: {
@@ -475,7 +554,8 @@ const Keys = {
       },
     },
   },
-  76: {
+  KeyL: {
+    keyCode: 76,
     keyName: 'l',
     isSystem: false,
     value: {
@@ -489,7 +569,8 @@ const Keys = {
       },
     },
   },
-  77: {
+  KeyM: {
+    keyCode: 77,
     keyName: 'm',
     isSystem: false,
     value: {
@@ -503,7 +584,8 @@ const Keys = {
       },
     },
   },
-  78: {
+  KeyN: {
+    keyCode: 78,
     keyName: 'n',
     isSystem: false,
     value: {
@@ -517,7 +599,8 @@ const Keys = {
       },
     },
   },
-  79: {
+  KeyO: {
+    keyCode: 79,
     keyName: 'o',
     isSystem: false,
     value: {
@@ -531,7 +614,8 @@ const Keys = {
       },
     },
   },
-  80: {
+  KeyP: {
+    keyCode: 80,
     keyName: 'p',
     isSystem: false,
     value: {
@@ -545,7 +629,8 @@ const Keys = {
       },
     },
   },
-  81: {
+  KeyQ: {
+    keyCode: 81,
     keyName: 'q',
     isSystem: false,
     value: {
@@ -559,7 +644,8 @@ const Keys = {
       },
     },
   },
-  82: {
+  KeyR: {
+    keyCode: 82,
     keyName: 'r',
     isSystem: false,
     value: {
@@ -573,7 +659,8 @@ const Keys = {
       },
     },
   },
-  83: {
+  KeyS: {
+    keyCode: 83,
     keyName: 's',
     isSystem: false,
     value: {
@@ -587,7 +674,8 @@ const Keys = {
       },
     },
   },
-  84: {
+  KeyT: {
+    keyCode: 84,
     keyName: 't',
     isSystem: false,
     value: {
@@ -601,7 +689,8 @@ const Keys = {
       },
     },
   },
-  85: {
+  KeyU: {
+    keyCode: 85,
     keyName: 'u',
     isSystem: false,
     value: {
@@ -615,7 +704,8 @@ const Keys = {
       },
     },
   },
-  86: {
+  KeyV: {
+    keyCode: 86,
     keyName: 'v',
     isSystem: false,
     value: {
@@ -629,7 +719,8 @@ const Keys = {
       },
     },
   },
-  87: {
+  KeyW: {
+    keyCode: 87,
     keyName: 'w',
     isSystem: false,
     value: {
@@ -643,7 +734,8 @@ const Keys = {
       },
     },
   },
-  88: {
+  KeyX: {
+    keyCode: 88,
     keyName: 'x',
     isSystem: false,
     value: {
@@ -657,7 +749,8 @@ const Keys = {
       },
     },
   },
-  89: {
+  KeyY: {
+    keyCode: 89,
     keyName: 'y',
     isSystem: false,
     value: {
@@ -671,7 +764,8 @@ const Keys = {
       },
     },
   },
-  90: {
+  KeyZ: {
+    keyCode: 90,
     keyName: 'z',
     isSystem: false,
     value: {
@@ -685,7 +779,8 @@ const Keys = {
       },
     },
   },
-  91: {
+  MetaLeft: {
+    keyCode: 91,
     keyName: 'left-windows-key',
     isSystem: true,
     value: {
@@ -699,7 +794,8 @@ const Keys = {
       },
     },
   },
-  186: {
+  Semicolon: {
+    keyCode: 186,
     keyName: 'semi-colon',
     isSystem: false,
     value: {
@@ -713,7 +809,8 @@ const Keys = {
       },
     },
   },
-  187: {
+  Equal: {
+    keyCode: 187,
     keyName: 'equal',
     isSystem: false,
     value: {
@@ -727,7 +824,8 @@ const Keys = {
       },
     },
   },
-  188: {
+  Comma: {
+    keyCode: 188,
     keyName: 'comma',
     isSystem: false,
     value: {
@@ -741,7 +839,8 @@ const Keys = {
       },
     },
   },
-  189: {
+  Minus: {
+    keyCode: 189,
     keyName: 'dash',
     isSystem: false,
     value: {
@@ -755,7 +854,8 @@ const Keys = {
       },
     },
   },
-  190: {
+  Period: {
+    keyCode: 190,
     keyName: 'period',
     isSystem: false,
     value: {
@@ -769,7 +869,8 @@ const Keys = {
       },
     },
   },
-  191: {
+  Slash: {
+    keyCode: 191,
     keyName: 'forward-slash',
     isSystem: false,
     value: {
@@ -783,7 +884,8 @@ const Keys = {
       },
     },
   },
-  192: {
+  Backquote: {
+    keyCode: 192,
     keyName: 'grave-accent',
     isSystem: false,
     value: {
@@ -797,7 +899,8 @@ const Keys = {
       },
     },
   },
-  219: {
+  BracketLeft: {
+    keyCode: 219,
     keyName: 'open-bracket',
     isSystem: false,
     value: {
@@ -811,7 +914,8 @@ const Keys = {
       },
     },
   },
-  220: {
+  Backslash: {
+    keyCode: 220,
     keyName: 'back-slash',
     isSystem: false,
     value: {
@@ -825,7 +929,8 @@ const Keys = {
       },
     },
   },
-  221: {
+  BracketRight: {
+    keyCode: 221,
     keyName: 'close-bracket',
     isSystem: false,
     value: {
@@ -839,7 +944,8 @@ const Keys = {
       },
     },
   },
-  222: {
+  Quote: {
+    keyCode: 222,
     keyName: 'single-quote',
     isSystem: false,
     value: {
