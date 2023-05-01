@@ -1,5 +1,6 @@
 import './keyboard.scss';
 
+import { getLang, setLang } from '../lang/lang';
 import createKey from '../key/key';
 import getKeyCodes from '../../db/keys';
 
@@ -22,8 +23,8 @@ const KEYBOARD_LAYOUT = [
 ];
 
 const KeyCodesObject = getKeyCodes();
-const lang = 'en';
 
+let lang = getLang();
 let textArea = null;
 let keyboard = null;
 let keysCollection = null;
@@ -203,6 +204,28 @@ function keyboardKeyDownHandler(e) {
   const keyCode = e.code;
   const keyObj = KeyCodesObject[keyCode];
 
+  if ((keyCode === 'AltLeft' && e.ctrlKey)
+    || (keyCode === 'ControlLeft' && e.altKey)) {
+    if (getLang() === 'en') {
+      setLang('ru');
+      lang = 'ru';
+    } else {
+      setLang('en');
+      lang = 'en';
+    }
+
+    KEYBOARD_LAYOUT.forEach((keyboardRow, rowIndex) => {
+      rowsArr[rowIndex].innerHTML = '';
+
+      keyboardRow.forEach((code) => {
+        const key = createKey(code, KeyCodesObject, lang, charType);
+        rowsArr[rowIndex].append(key);
+      });
+    });
+
+    keysCollection = keyboard.querySelectorAll('.key');
+  }
+
   keysCollection.forEach((key) => {
     if (key.dataset.keyCode === keyCode) {
       key.classList.add('key_down');
@@ -272,7 +295,7 @@ function keyboardKeyDownHandler(e) {
       });
     }
 
-    if (!keyObj.isSystem) {
+    if (keyObj && !keyObj.isSystem) {
       const textValue = textArea.value;
 
       if ((isShift && !isCapsLock) || (!isShift && isCapsLock)) charType = 'shift';
