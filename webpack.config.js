@@ -1,0 +1,55 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { minimize: false },
+          },
+        ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                'src/styles/vars.scss',
+                'src/styles/common.scss',
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+    new ESLintWebpackPlugin({
+      extensions: ['js'],
+    }),
+  ],
+  devServer: {
+    compress: true,
+    port: 3000,
+  },
+};

@@ -1,0 +1,28 @@
+.footer {
+  padding: 15px 0;
+}
+
+.footer__content {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.footer__link {
+  margin: 0;
+  padding: 10px;
+
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+
+  transition: 0.3s;
+
+  &:hover {
+    color: #5a2c2c;
+  }
+}
+
+.footer__copyright {
+  margin: 0;
+  padding: 10px;
+}
