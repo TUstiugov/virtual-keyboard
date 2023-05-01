@@ -167,7 +167,7 @@ const Keys = {
   ArrowLeft: {
     keyCode: 37,
     keyName: 'left-arrow',
-    isSystem: true,
+    isSystem: false,
     value: {
       en: {
         default: '◄',
@@ -182,7 +182,7 @@ const Keys = {
   ArrowUp: {
     keyCode: 38,
     keyName: 'up-arrow',
-    isSystem: true,
+    isSystem: false,
     value: {
       en: {
         default: '▲',
@@ -197,7 +197,7 @@ const Keys = {
   ArrowRight: {
     keyCode: 39,
     keyName: 'right-arrow',
-    isSystem: true,
+    isSystem: false,
     value: {
       en: {
         default: '►',
@@ -212,7 +212,7 @@ const Keys = {
   ArrowDown: {
     keyCode: 40,
     keyName: 'down-arrow',
-    isSystem: true,
+    isSystem: false,
     value: {
       en: {
         default: '▼',

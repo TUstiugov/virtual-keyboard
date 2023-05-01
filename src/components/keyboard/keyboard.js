@@ -201,6 +201,7 @@ function keyboardKeyDownHandler(e) {
 
   e.preventDefault();
   const keyCode = e.code;
+  const keyObj = KeyCodesObject[keyCode];
 
   keysCollection.forEach((key) => {
     if (key.dataset.keyCode === keyCode) {
@@ -271,7 +272,62 @@ function keyboardKeyDownHandler(e) {
       });
     }
 
-    console.log(keyCode, isShift, isCapsLock);
+    if (!keyObj.isSystem) {
+      const textValue = textArea.value;
+
+      if ((isShift && !isCapsLock) || (!isShift && isCapsLock)) charType = 'shift';
+      if ((!isShift && !isCapsLock) || (isShift && isCapsLock)) charType = 'default';
+
+      const keySymbol = keyObj.value[lang][charType];
+
+      let newText = textValue.slice(0, cursorPosition);
+      newText += keySymbol + textValue.slice(cursorPosition);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
+      getCursorPosition();
+    }
+
+    if (keyCode === 'Enter') {
+      const textValue = textArea.value;
+
+      let newText = textValue.slice(0, cursorPosition);
+      const enter = '\n';
+      newText += enter + textValue.slice(cursorPosition);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
+      getCursorPosition();
+    }
+
+    if (keyCode === 'Tab') {
+      const textValue = textArea.value;
+
+      let newText = textValue.slice(0, cursorPosition);
+      const tab = '    ';
+      newText += tab + textValue.slice(cursorPosition);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
+      getCursorPosition();
+    }
+
+    if (keyCode === 'Backspace') {
+      const textValue = textArea.value;
+
+      let newText = textValue.slice(0, cursorPosition - 1);
+      newText += textValue.slice(cursorPosition);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
+      getCursorPosition();
+    }
+
+    if (keyCode === 'Delete') {
+      const textValue = textArea.value;
+
+      let newText = textValue.slice(0, cursorPosition);
+      newText += textValue.slice(cursorPosition + 1);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition, cursorPosition);
+      getCursorPosition();
+    }
   }
 }
 
