@@ -152,7 +152,7 @@ const Keys = {
   Space: {
     keyCode: 32,
     keyName: 'space',
-    isSystem: true,
+    isSystem: false,
     value: {
       en: {
         default: ' ',
