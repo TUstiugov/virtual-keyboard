@@ -169,6 +169,14 @@ function keyboardMouseDownHandler(e) {
       if (key.dataset.keyCode === keyCode) {
         key.classList.add('key_down');
       }
+
+      if (key.dataset.keyCode === 'CapsLock') {
+        if (isCapsLock) {
+          key.classList.add('key_active');
+        } else {
+          key.classList.remove('key_active');
+        }
+      }
     });
   }
 }
@@ -194,6 +202,16 @@ function keyboardMouseUpHandler(e) {
     });
 
     keysCollection = keyboard.querySelectorAll('.key');
+
+    keysCollection.forEach((key) => {
+      if (key.dataset.keyCode === 'CapsLock') {
+        if (isCapsLock) {
+          key.classList.add('key_active');
+        } else {
+          key.classList.remove('key_active');
+        }
+      }
+    });
   }
 }
 
@@ -253,6 +271,14 @@ function keyboardKeyDownHandler(e) {
       keysCollection.forEach((key) => {
         if (key.dataset.keyCode === keyCode) {
           key.classList.add('key_down');
+        }
+
+        if (key.dataset.keyCode === 'CapsLock') {
+          if (isCapsLock) {
+            key.classList.add('key_active');
+          } else {
+            key.classList.remove('key_active');
+          }
         }
       });
     }
@@ -379,6 +405,16 @@ function keyboardKeyUpHandler(e) {
     });
 
     keysCollection = keyboard.querySelectorAll('.key');
+
+    keysCollection.forEach((key) => {
+      if (key.dataset.keyCode === 'CapsLock') {
+        if (isCapsLock) {
+          key.classList.add('key_active');
+        } else {
+          key.classList.remove('key_active');
+        }
+      }
+    });
   }
 }
 
