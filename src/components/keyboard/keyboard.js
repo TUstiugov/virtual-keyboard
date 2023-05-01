@@ -82,11 +82,20 @@ function keyboardClickHandler(e) {
 
       let newText = textValue.slice(0, cursorPosition);
       newText += element.innerText + textValue.slice(cursorPosition);
-      if (keyCode === 'Space') {
-        const space = ' ';
-        newText += space + textValue.slice(cursorPosition);
-      }
       textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
+      getCursorPosition();
+    }
+
+    if (keyCode === 'Space') {
+      const textValue = textArea.value;
+
+      let newText = textValue.slice(0, cursorPosition - 1);
+      const space = ' ';
+      newText += space + textValue.slice(cursorPosition - 1);
+      textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition, cursorPosition);
+      getCursorPosition();
     }
 
     if (keyCode === 'Enter') {
@@ -96,6 +105,8 @@ function keyboardClickHandler(e) {
       const enter = '\n';
       newText += enter + textValue.slice(cursorPosition);
       textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
+      getCursorPosition();
     }
 
     if (keyCode === 'Tab') {
@@ -105,6 +116,8 @@ function keyboardClickHandler(e) {
       const tab = '    ';
       newText += tab + textValue.slice(cursorPosition);
       textArea.value = newText;
+      textArea.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
+      getCursorPosition();
     }
 
     if (keyCode === 'Backspace') {
@@ -257,6 +270,8 @@ function keyboardKeyDownHandler(e) {
         }
       });
     }
+
+    console.log(keyCode, isShift, isCapsLock);
   }
 }
 
